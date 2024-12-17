@@ -8,6 +8,8 @@ RUN docker-php-ext-install intl
 RUN docker-php-ext-configure zip
 RUN docker-php-ext-install zip
 
+RUN pecl install apcu && docker-php-ext-enable apcu
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir -p /etc/apt/keyrings
